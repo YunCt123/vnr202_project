@@ -1,6 +1,7 @@
 import './App.css'
 import { Routes, Route } from 'react-router-dom'
 import { Header, Footer } from './components'
+import { ChatBot } from './components/ChatBot'
 import {
   HomePage,
   AboutPage,
@@ -25,6 +26,7 @@ function App() {
         </Routes>
       </main>
       <Footer />
+      <ChatBot />
     </>
   )
 }

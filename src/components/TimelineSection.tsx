@@ -1,102 +1,18 @@
-import { motion } from 'framer-motion'
-
-const timelineItemVariants = {
-  hidden: { opacity: 0, x: -50 },
-  visible: {
-    opacity: 1,
-    x: 0,
-    transition: {
-      duration: 0.6
-    }
-  }
-}
-
-const timelineItemVariantsRight = {
-  hidden: { opacity: 0, x: 50 },
-  visible: {
-    opacity: 1,
-    x: 0,
-    transition: {
-      duration: 0.6
-    }
-  }
-}
+import { useState } from 'react'
+import { motion, AnimatePresence } from 'framer-motion'
+import { timelinePeriods } from '../data/timelineData'
 
 export function TimelineSection() {
-  const events = [
-    {
-      date: '1858 - 1930',
-      title: 'Bối cảnh lịch sử và chuẩn bị thành lập Đảng',
-      description:
-        'Việt Nam trở thành thuộc địa nửa phong kiến; các phong trào Cần Vương, Đông Du, Duy Tân lần lượt thất bại. Nguyễn Ái Quốc tìm ra con đường giải phóng dân tộc theo chủ nghĩa Mác-Lênin và chuẩn bị về tư tưởng, tổ chức cho sự ra đời của Đảng.'
-    },
-    {
-      date: '1930',
-      title: 'Thành lập Đảng và Cương lĩnh đầu tiên',
-      description:
-        'Hội nghị hợp nhất tại Hương Cảng do Nguyễn Ái Quốc chủ trì đã thống nhất các tổ chức cộng sản, thông qua Cương lĩnh chính trị đầu tiên, xác lập mục tiêu độc lập dân tộc gắn với quyền lợi của nhân dân lao động.'
-    },
-    {
-      date: '1930 - 1935',
-      title: 'Xô Viết Nghệ Tĩnh và phục hồi tổ chức Đảng',
-      description:
-        'Phong trào cách mạng 1930-1931 bùng nổ với đỉnh cao là Xô Viết Nghệ Tĩnh. Sau khủng bố trắng, Đảng từng bước khôi phục hệ thống tổ chức và tổ chức thành công Đại hội I năm 1935.'
-    },
-    {
-      date: '1936 - 1939',
-      title: 'Phong trào dân chủ Đông Dương',
-      description:
-        'Trong bối cảnh thế giới chống phát xít, Đảng điều chỉnh chiến lược, đẩy mạnh đấu tranh công khai, nửa công khai để đòi dân sinh, dân chủ, chống chiến tranh và mở rộng mặt trận đoàn kết quần chúng.'
-    },
-    {
-      date: '1939 - 1945',
-      title: 'Chuyển hướng chiến lược và Cách mạng Tháng Tám',
-      description:
-        'Đảng đặt nhiệm vụ giải phóng dân tộc lên hàng đầu, xây dựng lực lượng chính trị - vũ trang, thành lập Việt Minh, chớp thời cơ Tổng khởi nghĩa tháng 8/1945, giành chính quyền trên cả nước.'
-    },
-    {
-      date: '1945 - 1954',
-      title: 'Kháng chiến chống thực dân Pháp',
-      description:
-        'Nhà nước non trẻ vượt qua muôn vàn khó khăn, tiến hành kháng chiến toàn dân - toàn diện. Đỉnh cao là chiến thắng Điện Biên Phủ (1954), buộc Pháp ký Hiệp định Geneve.'
-    },
-    {
-      date: '1954 - 1975',
-      title: 'Kháng chiến chống Mỹ, thống nhất đất nước',
-      description:
-        'Miền Bắc xây dựng CNXH, miền Nam đấu tranh giải phóng. Sau các bước ngoặt chiến lược, Chiến dịch Hồ Chí Minh toàn thắng ngày 30/4/1975, đất nước thống nhất.'
-    },
-    {
-      date: '1975 - 1986',
-      title: 'Thống nhất đất nước và vượt qua khủng hoảng',
-      description:
-        'Cả nước đi lên CNXH trong điều kiện hậu chiến và bao vây cấm vận, đối mặt khó khăn kinh tế - xã hội và chiến tranh biên giới. Đây là bối cảnh trực tiếp dẫn đến yêu cầu đổi mới toàn diện.'
-    },
-    {
-      date: '1986 - 1995',
-      title: 'Đại hội VI và khởi đầu Đổi mới',
-      description:
-        'Đại hội VI mở ra đường lối đổi mới toàn diện, chuyển sang cơ chế thị trường định hướng XHCN, từng bước ổn định kinh tế vĩ mô, mở rộng đối ngoại và tạo nền tảng hội nhập.'
-    },
-    {
-      date: '1995 - 2006',
-      title: 'Hội nhập khu vực và mở rộng quan hệ quốc tế',
-      description:
-        'Việt Nam bình thường hóa quan hệ với Hoa Kỳ (1995), gia nhập ASEAN (1995), đẩy mạnh công nghiệp hóa, hiện đại hóa và hoàn thiện thể chế phát triển trong thời kỳ mới.'
-    },
-    {
-      date: '2006 - 2021',
-      title: 'Hội nhập toàn cầu, phát triển và chỉnh đốn Đảng',
-      description:
-        'Gia nhập WTO (2006), kinh tế tăng trưởng gắn với tái cơ cấu. Các nhiệm kỳ XI, XII thúc đẩy xây dựng, chỉnh đốn Đảng và phòng chống tham nhũng, tạo chuyển biến mạnh về quản trị quốc gia.'
-    },
-    {
-      date: '2021 - Nay',
-      title: 'Đại hội XIII và tầm nhìn đến 2045',
-      description:
-        'Đại hội XIII xác định mục tiêu đến năm 2045 đưa Việt Nam thành nước phát triển, thu nhập cao. Giai đoạn 2024 đến nay tiếp tục kiện toàn lãnh đạo, thúc đẩy chuyển đổi số và phát triển bền vững trong bối cảnh cạnh tranh toàn cầu.'
-    }
-  ]
+  const [expandedId, setExpandedId] = useState<string | null>(null)
+  const [filter, setFilter] = useState<string>('all')
+
+  const filteredPeriods = filter === 'all'
+    ? timelinePeriods
+    : timelinePeriods.filter(p => p.id === filter)
+
+  const toggleExpand = (id: string) => {
+    setExpandedId(prev => prev === id ? null : id)
+  }
 
   return (
     <section className="section section-cream" id="timeline">
@@ -110,35 +26,101 @@ export function TimelineSection() {
         >
           Dòng thời gian lịch sử
         </motion.h2>
-        <div className="timeline">
-          {events.map((event, index) => (
+
+        <motion.p
+          className="timeline-page-subtitle"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.2 }}
+        >
+          Hành trình hơn 90 năm của Đảng Cộng sản Việt Nam qua các giai đoạn lịch sử
+        </motion.p>
+
+        {/* Filter Buttons */}
+        <div className="timeline-filters">
+          <button
+            className={`timeline-filter-btn ${filter === 'all' ? 'active' : ''}`}
+            onClick={() => setFilter('all')}
+          >
+            Tất cả
+          </button>
+          {timelinePeriods.map(p => (
+            <button
+              key={p.id}
+              className={`timeline-filter-btn ${filter === p.id ? 'active' : ''}`}
+              onClick={() => setFilter(p.id)}
+            >
+              {p.yearRange}
+            </button>
+          ))}
+        </div>
+
+        {/* Timeline */}
+        <div className="timeline-v2">
+          <div className="timeline-v2-line" />
+          {filteredPeriods.map((period, idx) => (
             <motion.div
-              key={index}
-              className="timeline-item"
-              variants={index % 2 === 0 ? timelineItemVariants : timelineItemVariantsRight}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, margin: "-50px" }}
+              key={period.id}
+              className={`timeline-v2-period ${expandedId === period.id ? 'expanded' : ''}`}
+              initial={{ opacity: 0, x: idx % 2 === 0 ? -40 : 40 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, margin: '-40px' }}
+              transition={{ duration: 0.5, delay: idx * 0.05 }}
             >
               <motion.div
-                className="timeline-marker"
+                className="timeline-v2-marker"
                 initial={{ scale: 0 }}
                 whileInView={{ scale: 1 }}
                 viewport={{ once: true }}
-                transition={{ delay: 0.2, duration: 0.4 }}
-                whileHover={{ scale: 1.5, backgroundColor: '#fde047' }}
-              ></motion.div>
+                transition={{ delay: 0.2, type: 'spring', stiffness: 200 }}
+                whileHover={{ scale: 1.4 }}
+              />
+
               <motion.div
-                className="timeline-content"
-                whileHover={{
-                  y: -8,
-                  boxShadow: '0 25px 50px rgba(0, 0, 0, 0.15)',
-                  transition: { duration: 0.3 }
-                }}
+                className="timeline-v2-card"
+                onClick={() => toggleExpand(period.id)}
+                whileHover={{ y: -4, boxShadow: '0 20px 50px rgba(0,0,0,0.12)' }}
               >
-                <span className="timeline-date">{event.date}</span>
-                <h3>{event.title}</h3>
-                <p>{event.description}</p>
+                <div className="timeline-v2-card-header">
+                  <span className="timeline-v2-badge">{period.yearRange}</span>
+                  <h3>{period.title}</h3>
+                  <p>{period.summary}</p>
+                  <span className="timeline-v2-toggle">
+                    {expandedId === period.id ? '▲ Thu gọn' : `▼ Xem ${period.events.length} sự kiện`}
+                  </span>
+                </div>
+
+                <AnimatePresence>
+                  {expandedId === period.id && (
+                    <motion.div
+                      className="timeline-v2-events"
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: 'auto', opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      transition={{ duration: 0.4 }}
+                    >
+                      {period.events.map((event, eIdx) => (
+                        <motion.div
+                          key={eIdx}
+                          className="timeline-v2-event"
+                          initial={{ opacity: 0, y: 10 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          transition={{ delay: eIdx * 0.04 }}
+                        >
+                          <div className="timeline-v2-event-dot" />
+                          <div className="timeline-v2-event-content">
+                            <span className="timeline-v2-event-year">
+                              {event.date || event.year}
+                            </span>
+                            <strong>{event.title}</strong>
+                            <p>{event.description}</p>
+                          </div>
+                        </motion.div>
+                      ))}
+                    </motion.div>
+                  )}
+                </AnimatePresence>
               </motion.div>
             </motion.div>
           ))}
