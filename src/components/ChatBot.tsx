@@ -7,9 +7,6 @@ interface Message {
   text: string
 }
 
-const API_KEY = 'AIzaSyB7M1h6CjSGljQJo47TfX0Gy7tf4KSAwjQ'
-const API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${API_KEY}`
-
 const SYSTEM_PROMPT = `Bạn là trợ lý AI chuyên về lịch sử Đảng Cộng sản Việt Nam. Hãy trả lời câu hỏi dựa trên dữ liệu sau đây. Trả lời bằng tiếng Việt, ngắn gọn và chính xác. Nếu câu hỏi nằm ngoài phạm vi dữ liệu, hãy cho biết bạn chỉ có thể trả lời về lịch sử Đảng Cộng sản Việt Nam.
 
 DỮ LIỆU LỊCH SỬ:
@@ -30,7 +27,7 @@ async function callGemini(messages: Message[]): Promise<string> {
     }
   }
 
-  const res = await fetch(API_URL, {
+  const res = await fetch('/api/chat', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(body)
