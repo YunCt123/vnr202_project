@@ -53,6 +53,9 @@ export function Footer() {
               <motion.li whileHover={{ x: 5, transition: { duration: 0.2 } }}>
                 <Link to="/videos">Video tư liệu</Link>
               </motion.li>
+              <motion.li whileHover={{ x: 5, transition: { duration: 0.2 } }}>
+                <Link to="/tools-ai">Tools & Cam kết AI</Link>
+              </motion.li>
             </ul>
           </motion.div>
           <motion.div className="footer-col" variants={fadeInUp}>

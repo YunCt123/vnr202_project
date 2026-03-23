@@ -10,7 +10,8 @@ import {
   StoryPage,
   LeadersPage,
   VideosPage,
-  GroupPage
+  GroupPage,
+  ToolsAIPage
 } from './pages'
 
 function App() {
@@ -26,6 +27,7 @@ function App() {
           <Route path="/leaders" element={<LeadersPage />} />
           <Route path="/videos" element={<VideosPage />} />
           <Route path="/group" element={<GroupPage />} />
+          <Route path="/tools-ai" element={<ToolsAIPage />} />
         </Routes>
       </main>
       <Footer />

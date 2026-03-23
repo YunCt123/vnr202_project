@@ -55,12 +55,12 @@ const mapRegions: MapRegionData[] = [
     shapeClass: 'map-region--danang',
   },
   {
-    id: 'da-lat',
-    label: 'Đà Lạt',
+    id: 'buon-ma-thuot',
+    label: 'Buôn Ma Thuột',
     description: 'Dấu ấn cao nguyên với vị trí quân sự đặc biệt.',
     body:
-      'Tây Nguyên là hướng chiến lược mở đầu cuộc Tổng tiến công mùa xuân 1975, trong đó các đô thị cao nguyên như Đà Lạt mang vai trò kết nối hậu cần và kiểm soát địa bàn.',
-    shapeClass: 'map-region--dalat',
+      'Tây Nguyên là hướng chiến lược mở đầu cuộc Tổng tiến công mùa xuân 1975, trong đó các đô thị cao nguyên như Buôn Ma Thuột mang vai trò kết nối hậu cần và kiểm soát địa bàn.',
+    shapeClass: 'map-region--buon-ma-thuot',
   },
   {
     id: 'can-tho',

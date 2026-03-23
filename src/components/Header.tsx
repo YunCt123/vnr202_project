@@ -92,6 +92,14 @@ export function Header() {
                 Nhóm
               </Link>
             </li>
+            <li>
+              <Link
+                to="/tools-ai"
+                className={isActive('/tools-ai') ? 'active' : ''}
+              >
+                Tools & AI
+              </Link>
+            </li>
           </ul>
           <motion.button
             className="mobile-menu-btn"
@@ -127,7 +135,7 @@ export function Header() {
             </Link>
           </li>
           <li>
-            <Link to="/story" onClick={closeMobileMenu}>
+            <Link to="/map" onClick={closeMobileMenu}>
               Story Map
             </Link>
           </li>
@@ -144,6 +152,11 @@ export function Header() {
           <li>
             <Link to="/group" onClick={closeMobileMenu}>
               Nhóm
+            </Link>
+          </li>
+          <li>
+            <Link to="/tools-ai" onClick={closeMobileMenu}>
+              Tools & AI
             </Link>
           </li>
         </ul>
