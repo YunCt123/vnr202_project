@@ -186,8 +186,9 @@
 }
 
 .map-stage--solo {
-  width: min(720px, 100%);
+  width: min(600px, 100%);
   padding: 0;
+  margin: 0 auto;
 }
 
 .map-stage__header h3 {
@@ -210,12 +211,14 @@
   position: relative;
   width: 100%;
   aspect-ratio: 7 / 10;
-  border-radius: 22px;
-  border: 1px solid rgba(127, 29, 29, 0.22);
+  border-radius: 0;
+  border: none;
   background: var(--map-image) center / contain no-repeat;
   background-color: transparent;
   overflow: visible;
   box-shadow: none;
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
 }
 
 .map-region {
@@ -278,51 +281,47 @@
 }
 
 .map-region--dienbien {
-  left: 24%;
-  top: 17%;
-}
-
-.map-region--hanoi {
-  left: 42%;
+  left: 27%;
   top: 22%;
 }
 
+.map-region--hanoi {
+  left: 45%;
+  top: 27%;
+}
+
 .map-region--haiphong {
-  left: 52%;
-  top: 24%;
+  left: 54%;
+  top: 29%;
 }
 
 .map-region--hue {
-  left: 48%;
-  top: 40%;
+  left: 52%;
+  top: 46%;
 }
 
 .map-region--danang {
-  left: 50%;
-  top: 44%;
+  left: 54%;
+  top: 50%;
 }
 
 .map-region--dalat {
-  left: 52%;
-  top: 63%;
+  left: 54%;
+  top: 70%;
 }
 
 .map-region--cantho {
-  left: 42%;
-  top: 83%;
+  left: 45%;
+  top: 90%;
 }
 
 .map-region--saigon {
-  left: 48%;
-  top: 77%;
+  left: 51%;
+  top: 84%;
 }
 
 .map-glow {
-  position: absolute;
-  inset: auto -40px -50px;
-  height: 180px;
-  background: radial-gradient(circle at center, rgba(250, 204, 21, 0.28), transparent 70%);
-  pointer-events: none;
+  display: none;
 }
 
 .map-side-panel {

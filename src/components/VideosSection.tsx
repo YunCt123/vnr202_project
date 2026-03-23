@@ -81,7 +81,7 @@ export function VideosSection() {
 
   return (
     <>
-      <section className="section section-red" id="videos">
+      <section className="section section-red" id="videos" style={{ flex: 1, minHeight: 'calc(100vh - 70px)', paddingBottom: '80px' }}>
         <div className="container">
           <motion.h2
             className="section-title section-title-light"

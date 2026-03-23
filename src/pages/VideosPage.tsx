@@ -7,7 +7,7 @@ export function VideosPage() {
       initial={{ opacity: 0, x: -20 }}
       animate={{ opacity: 1, x: 0 }}
       transition={{ duration: 0.6 }}
-      style={{ minHeight: '100vh', background: 'linear-gradient(135deg, #7f1d1d 0%, #b91c1c 100%)' }}
+      style={{ minHeight: '100vh', background: 'linear-gradient(135deg, #7f1d1d 0%, #b91c1c 100%)', display: 'flex', flexDirection: 'column' as const }}
     >
       <VideosSection />
     </motion.div>
