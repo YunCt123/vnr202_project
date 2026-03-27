@@ -67,7 +67,7 @@ export function VideosSection() {
   const [activeVideo, setActiveVideo] = useState<string | null>(null)
 
   const videos: Video[] = [
-    { id: 'GifvfJowlVQ', title: 'Lịch sử Đảng Việt Nam' },
+    { id: 'qP-lvOyZANY', title: 'Lịch sử Đảng Việt Nam' },
     { id: '66tLc02zoNs', title: 'Những nhân vật có tầm ảnh hưởng trong cuộc đời của Bác Hồ' },
   ]
 
